@@ -234,7 +234,7 @@ URL:<a href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%83%96%E3%83%A9%E3%8
 branch とは枝という意味で、上の図のように branch が枝分かれしていく様子から名付けられているらしい
 
 branch をどのような構造で作るかについては各種議論があるが、  
-<a href="/dokuwiki/doku.php?id=alumni_directory#野田_紘平さん" class="wikilink1" title="alumni_directory">このページの編集者</a>が個人的に推しているのは<a href="https://www.atlassian.com/ja/git/tutorials/comparing-workflows/gitflow-workflow" class="urlextern" title="https://www.atlassian.com/ja/git/tutorials/comparing-workflows/gitflow-workflow">Git-flow</a>の構造  
+このページの編集者が個人的に推しているのは<a href="https://www.atlassian.com/ja/git/tutorials/comparing-workflows/gitflow-workflow" class="urlextern" title="https://www.atlassian.com/ja/git/tutorials/comparing-workflows/gitflow-workflow">Git-flow</a>の構造  
 従って以降の説明はこの構造に則って行う。
 
 **各ブランチの役割**
