@@ -217,7 +217,7 @@ Date:   Tue Nov 2 17:22:56 2021 +0900
 
 ##  6. <a name='branchGit'></a>branch(Git の重要な機能)
 
-実は<span
+実はGitの基本的な使い方で行っていた編集は1つのbranchというものを使って行っていた。
 
 しかし通常 Git を使う際は Initial
 Commit をした branch に新しい commit をどんどん書き込むということはせず  
