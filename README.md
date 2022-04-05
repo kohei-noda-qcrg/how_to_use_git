@@ -18,7 +18,7 @@
 
 ##  1. <a name='QuickStart'></a>QuickStart
 
-###  1.1. <a name='3'></a>基本的にやることは以下の3つ  
+Gitを使う上での基本的な流れは以下の3つ  
 
 (以下のコマンドはVScodeなどを使うと全てGUIで実行できたりするのでそちらのほうがやりやすいかも: [参考リンク](https://qiita.com/y-tsutsu/items/2ba96b16b220fb5913be))
 
