@@ -22,7 +22,7 @@ Gitを使う上での基本的な流れは以下の3つ
 
 (以下のコマンドはVScodeなどを使うと全てGUIで実行できたりするのでそちらのほうがやりやすいかも: [参考リンク](https://qiita.com/y-tsutsu/items/2ba96b16b220fb5913be))
 
-- 新しい機能を作るときはdevelopブランチからfeatureブランチを作る
+- 開発を始めるときはdevelopブランチからfeatureブランチを作る(featureブランチは1機能くらいの小さい単位で分けたほうが良い 例:feature/#xx_indmo_number_sort)
 
   コマンド例
 
@@ -47,7 +47,7 @@ Gitを使う上での基本的な流れは以下の3つ
       git commit -m '[Fix] Bugfix main.f90. Memory allocation error'
     ```
 
-- ある程度の塊の機能が実装でき、バグなく実行できることが確認できたらmainブランチやdevelopブランチにマージする
+- featureブランチで付けた名前の機能分程度の実装ができ、バグなく実行できることが確認できたらmainブランチやdevelopブランチにマージする
   - githubやgitlabなどのリモートリポジトリをつかっていたらpushする([参考リンク1](https://www.freecodecamp.org/news/git-push-to-remote-branch-how-to-push-a-local-branch-to-origin/),[参考リンク2](https://qiita.com/shimotaroo/items/ed08d76447144d566637))
 
     ```sh
