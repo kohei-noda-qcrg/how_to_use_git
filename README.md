@@ -161,7 +161,7 @@ program ---- main.f90
           |_ time.f90
           |_ util.f90
 ```
-
+fdfdsf
 のような構造のプログラム群を git で管理するときの流れを紹介する
 
 ```sh
