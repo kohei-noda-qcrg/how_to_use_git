@@ -8,7 +8,7 @@
 4. [Git(バージョン管理ツール)をなぜ使うのか](#whyareweusegit)
 5. [Git の基本的な使い方](#basicusageofgit)
 6. [branch(Git の重要な機能)](#branchGit)
-
+a
 <!-- vscode-markdown-toc-config
 	numbering=true
 	autoSave=true
