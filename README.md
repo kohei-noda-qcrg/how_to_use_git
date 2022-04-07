@@ -8,7 +8,6 @@
 4. [Git(バージョン管理ツール)をなぜ使うのか](#whyareweusegit)
 5. [Git の基本的な使い方](#basicusageofgit)
 6. [branch(Git の重要な機能)](#branchGit)
-a
 <!-- vscode-markdown-toc-config
 	numbering=true
 	autoSave=true
@@ -161,7 +160,7 @@ program ---- main.f90
           |_ time.f90
           |_ util.f90
 ```
-
+fdfdsf
 のような構造のプログラム群を git で管理するときの流れを紹介する
 
 ```sh
