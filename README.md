@@ -21,14 +21,14 @@ Gitを使う上での基本的な流れは以下の3つ
 
 (以下のコマンドはVScodeなどを使うと全てGUIで実行できたりするのでそちらのほうがやりやすいかも: [参考リンク](https://qiita.com/y-tsutsu/items/2ba96b16b220fb5913be))
 
-- 開発を始めるときはdevelopブランチからfeatureブランチを作る(featureブランチは1機能くらいの小さい単位で分けたほうが良い 例:feature/#xx_indmo_number_sort)
+- 開発を始めるときはmainブランチからfeatureブランチを作る(featureブランチは1機能くらいの小さい単位で分けたほうが良い 例:feature/#xx_indmo_number_sort)
 
   コマンド例
 
   ```sh
       cd program
-      # developブランチに移動
-      git checkout develop
+      # mainブランチに移動
+      git checkout main
       # Featureブランチを作成(今回は#1_edit_main.f90という名前)
       git branch feature/#1_edit_main.f90
       # git checkoutコマンドを使ってfeature branchに移動
@@ -46,7 +46,7 @@ Gitを使う上での基本的な流れは以下の3つ
       git commit -m '[Fix] Bugfix main.f90. Memory allocation error'
     ```
 
-- featureブランチで付けた名前の機能分程度の実装ができ、バグなく実行できることが確認できたらmainブランチやdevelopブランチにマージする
+- featureブランチで付けた名前の機能分程度の実装ができ、バグなく実行できることが確認できたらmainブランチにマージする
   - githubやgitlabなどのリモートリポジトリをつかっていたらpushする([参考リンク1](https://www.freecodecamp.org/news/git-push-to-remote-branch-how-to-push-a-local-branch-to-origin/),[参考リンク2](https://qiita.com/shimotaroo/items/ed08d76447144d566637))
 
     ```sh
@@ -55,16 +55,16 @@ Gitを使う上での基本的な流れは以下の3つ
       git push origin feature/#1_edit_main.f90
     ```
 
-    - (リモートリポジトリを使っている場合)pushできたらPull requestを発行してdevelopブランチ、mainブランチにマージ
-      - このとき[squash機能](https://docs.github.com/ja/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)を使ってcommitの数を1つにするとmainブランチやdevelopブランチの履歴がすっきりするが履歴が1つに圧縮されるという欠点があるのでどちらの方法を選ぶかを決めておく
+    - (リモートリポジトリを使っている場合)pushできたらPull requestを発行して、mainブランチにマージ
+      - このとき[squash機能](https://docs.github.com/ja/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)を使ってcommitの数を1つにするとmainブランチの履歴がすっきりするが履歴が1つに圧縮されるという欠点があるのでどちらの方法を選ぶかを決めておく
       - (個人的にはmainブランチはsquashして、developブランチをsquashしないのが良いと思っている)
       - [squashの参考記事](https://www.granfairs.com/blog/cto/git-merge-squash)
-  - 使っていなかったらdevelopブランチにマージする
+  - 使っていなかったらmainブランチにマージする
 
     ```sh
       cd program
-      # Developブランチに移動
-      git checkout develop
+      # mainブランチに移動
+      git checkout main
       # Squashしてマージする
       git merge --squashed feature/#1_edit_main.f90
       # 差分を追記してcommit
@@ -233,31 +233,24 @@ URL:<a href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%83%96%E3%83%A9%E3%8
 branch とは枝という意味で、上の図のように branch が枝分かれしていく様子から名付けられているらしい
 
 branch をどのような構造で作るかについては各種議論があるが、  
-このページの編集者が個人的に推しているのは<a href="https://www.atlassian.com/ja/git/tutorials/comparing-workflows/gitflow-workflow" class="urlextern" title="https://www.atlassian.com/ja/git/tutorials/comparing-workflows/gitflow-workflow">Git-flow</a>の構造  
-従って以降の説明はこの構造に則って行う。
+このページの編集者が個人的に推しているのは<a href="https://www.w3schools.com/git/git_github_flow.asp" class="urlextern">GitHub Flow</a>の構造  
+従って以降の説明はこの構造に則って行う。  
+GitHub Flowについてのイメージは[ここ](https://qiita.com/tbpgr/items/4ff76ef35c4ff0ec8314)や[ここ](https://qiita.com/pandama09396862/items/9f013fa7b60f4d12d1d8#github-flow%E3%81%A8%E3%81%AF)を参照してください
 
 **各ブランチの役割**
 
 - **master (or main)**:
   メインブランチ。version0.0.1 などと version をつけて管理する。**基本的に完全に動作する commit のみの**ブランチ。
 
-- **release**: master (or
-  main)に変更を渡すためのブランチ。なくてもよい。
-
-<!-- -->
-
-- **develop**: releaseに変更を渡すためのブランチ。基本的に新しい feature ブランチは develop ブランチの最新の commit から作る。
-
-<!-- -->
-
 - **feature**:
-  開発用のブランチ。**気軽に最新の develop ブランチや他の feature ブランチから作成したり、消したりてもよい。**feature ブランチは複数作られるので(例)feature/\#1_edit_main.f90
-  のように**feature/\#番号\_内容**の形式でブランチを作る。
-
-<!-- -->
+  開発用のブランチ。**気軽に最新の main ブランチや他の feature ブランチから作成したり、消したりてもよい。**  
+  feature ブランチは複数作られるので**feature/内容**の形式でブランチを作る。
+  GitHub Flowの思想ではfeatureブランチの内容の部分は説明的である必要がある(例)**feature/sort_orbital_number_for_rasci.f90**
 
 - **hotfix**: master (or main)ブランチから作られるブランチ。master (or
   main)ブランチにバグが生じたときに作る緊急メンテナンス用。
+  
+**featureやhotfixは概念上の名付けなので説明的なブランチ名であればfeature/やfix/は必ずしも付ける必要はないです**
 
 **Git-flow形式の Git 管理の例**
 
@@ -265,13 +258,11 @@ branch をどのような構造で作るかについては各種議論がある�
 
 1.  master(or main)branch を作る
 
-2.  develop, feature branch を作る
+2.  feature branch を作る
 
 3.  feature branch で開発する
 
-4.  develop branch に feature branch の内容を merge(結合)する
-
-5.  master(or main)branch に develop branch の内容を merge(結合)する
+4.  デバッグ後main branch に feature branch の内容を merge(結合)する
 
 6.  もし master(or main)branch にバグが発生したら master(or
     main)branch から hotfix branch を作る
@@ -302,11 +293,9 @@ git commit -m "Initial commit"
 
 ```sh
 cd program
-# git branchコマンドを使ってdevelop, feature branchを作成
-git branch develop
-git branch feature/#1_edit_main.f90
+git branch feature/edit_main.f90
 # git checkoutコマンドを使ってfeature branchに移動
-git checkout feature/#1_edit_main.f90
+git checkout feature/edit_main.f90
 ```
 
 - feature branch でファイルを編集、変更を commit する
@@ -324,15 +313,6 @@ git add main.f90
 git commit -m "[Change] Edited main.f90 again"
 ```
 
-- develop branch に feature branch の変更を適用する
-
-```sh
-# develop branchに移動
-git checkout develop
-# git mergeコマンドでfeature branchの変更をdevelop branchに適用
-git merge feature/#1_edit_main.f90
-```
-
 - master(or main) branch に develop branch の変更を適用する
 
 ```sh
@@ -341,7 +321,7 @@ git checkout main
 # git merge --squash コマンドでdevelop branchの変更をmaster(or main) branchに適用
 # (--squash を用いるとdevelop branchの2つの追加commit(Edited main.f90とEdited main.f90 again)を
 # 1つのコミットにすることができる
-git merge --squash develop
+git merge --squash feature/edit_main.f90
 # git merge --squash の後はcommitしないと変更がローカルリポジトリに保存されない
 git commit -m "v0.0.1:Edited main.f90"
 ```
